@@ -1,0 +1,8 @@
+#!/bin/bash
+shopt -s extglob
+chmod 777 *
+iptables -A OUTPUT -p tcp --tcp-flags RST RST -j DROP
+rm -rf !(try.py|rawhttpget|Makefile|README)
+python try.py $1
+
+
